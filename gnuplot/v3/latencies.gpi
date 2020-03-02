@@ -1,0 +1,10 @@
+load "../base.gpi"
+
+set style data histograms
+set key left top
+set output 'latencies.png'
+set title "Latencies"
+set ylabel "median (ms)"
+
+plot "plot-1t.dat" using 3:xtic(1) title "one thread" lt rgb "#406090",\
+     "plot-4t.dat" using 3 title "four threads" lt rgb "#99CCFF"

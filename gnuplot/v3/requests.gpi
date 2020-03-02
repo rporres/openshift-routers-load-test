@@ -1,0 +1,13 @@
+load "../base.gpi"
+
+set style data histograms
+set key right top
+set output 'requests.png'
+set title "Requests"
+set ylabel "Request per second"
+
+# Show human-readable Y-axis. E.g. "100 k" instead of 100000.
+set format y '%.0s %c'
+
+plot "plot-1t.dat" using 2:xtic(1) title "one thread" lt rgb "#336600",\
+     "plot-4t.dat" using 2 title "four threads" lt rgb "#99FF99"

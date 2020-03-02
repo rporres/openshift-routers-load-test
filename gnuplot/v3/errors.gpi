@@ -1,0 +1,13 @@
+load "../base.gpi"
+
+set style data histograms
+set key right top
+set output 'errors.png'
+set title "Errors"
+set ylabel "Errors per second"
+
+# Show human-readable Y-axis. E.g. "100 k" instead of 100000.
+set format y '%.0s %c'
+
+plot "plot-1t.dat" using 4:xtic(1) title "one thread" lt rgb "#CC0000",\
+     "plot-4t.dat" using 4 title "four threads" lt rgb "#FF9999"
