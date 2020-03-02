@@ -10,12 +10,13 @@ TLS routes will be used as they're the ones that generate more load in the serve
 git clone https://github.com/rporres/http-ci-tests.git
 cd http-ci-tests/content/quickstarts/nginx
 for i in $(seq 0 24); do
-  oc process -p IDENTIFIER=$i -f server-tls-edge.yaml | oc create -f -;
-  oc process -p IDENTIFIER=$i -f server-tls-reencrypt.yaml | oc create -f -;
+  oc process -p IDENTIFIER=$i -f server-tls-edge.yaml | oc create -f -
+  oc process -p IDENTIFIER=$i -f server-tls-reencrypt.yaml | oc create -f -
 done
 ```
 
 and create a `routes.txt` file:
+
 ```
 oc get routes -o json | jq -r '.items[] | .spec["host"]' > routes.txt
 ```
@@ -58,6 +59,7 @@ git clone https://github.com/rporres/mb-k8s.git
 cd mb-k8s
 helm install <test-name> helm/mb-k8s -f <values.yaml>
 ```
+
 where `values.yaml` is one of the files inside [`mb-k8s-values-files`](mb-k8s-values-files)
 
 ## Prepare the result files
@@ -73,5 +75,3 @@ done | sort -t, -k1n,1n | xz > 100ka-200c.xz
 # Create the plots comparing the different runs
 
 In order to create data files for gnuplot from the result files, a utility script is provided [`create-gnuplot-values-file.py`](utils/create-gnuplot-values-file.py). It will create data files counting request rate, median latencies and error rates. Example gnuplot files can be found in [`gnuplot`](gnuplot) directory
-
-
