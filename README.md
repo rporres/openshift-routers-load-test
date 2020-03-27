@@ -15,7 +15,7 @@ for i in $(seq 0 24); do
 done
 ```
 
-and create a `routes.txt` file:
+and create a `targets.txt` file:
 
 ```
 oc get routes -o json | jq -r '.items[] | .spec["host"]' > targets.txt
