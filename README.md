@@ -18,7 +18,7 @@ done
 and create a `routes.txt` file:
 
 ```
-oc get routes -o json | jq -r '.items[] | .spec["host"]' > routes.txt
+oc get routes -o json | jq -r '.items[] | .spec["host"]' > targets.txt
 ```
 
 ## Create the load testing cluster aws secret
