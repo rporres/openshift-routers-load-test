@@ -1,11 +1,11 @@
-jobParallelism: 1
+jobParallelism: 4
 image:
   tag: latest
   pullPolicy: Always
 app:
-  duration: 120
-  requestConfigMap: request-file-10ka-50c
-  requestConfigMapSubPath: request-file-10ka-50c.json
+  duration: 600
+  requestConfigMap: request-file-1ka-50c
+  requestConfigMapSubPath: request-file-1ka-50c.json
   storeOutput: true
   rampUp: 0
   awsSecretName: aws-s3

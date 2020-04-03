@@ -3,11 +3,11 @@ image:
   tag: latest
   pullPolicy: Always
 app:
-  duration: 600
-  requestConfigMap: request-file-1ka-50c
-  requestConfigMapSubPath: request-file-1ka-50c.json
+  duration: 120
+  requestConfigMap: request-file-10ka-50c
+  requestConfigMapSubPath: request-file-10ka-50c.json
   storeOutput: true
   rampUp: 0
   awsSecretName: aws-s3
   awsDefaultRegion: eu-west-1
-  s3BucketName: test-vegeta-upload
+  s3BucketName: sd-app-sre-load-tests

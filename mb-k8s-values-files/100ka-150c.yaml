@@ -10,4 +10,4 @@ app:
   rampUp: 0
   awsSecretName: aws-s3
   awsDefaultRegion: eu-west-1
-  s3BucketName: test-vegeta-upload
+  s3BucketName: sd-app-sre-load-tests
